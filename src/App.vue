@@ -1,21 +1,69 @@
 <template>
   <h1 class="title">Vue 3</h1>
 
-  <p>
-    
-  </p>
-
-  <div
-      v-for="(obj, index) in users"
-      v-bind:key="obj.id"
-      class="tomilho"
-  >
-    <img
-        v-if="obj.imgSrc"
-        v-bind:src="obj.imgSrc"
-    >
-    {{index}} - {{ obj.nome }}
+  <div>
+    <label>Nome</label>
+    <br>
   </div>
+  <input
+      v-model="name"
+      type="text"
+  >
+  <br>
+  {{ name }}
+  <br>
+  <br>
+  <div>
+    <label>Sports</label><br>
+    <select v-model="sports">
+      <option value="">Escolha</option>
+      <option value="futebol">Futebol</option>
+      <option value="skate">Skate</option>
+      <option value="basquete">Basquete</option>
+    </select><br>
+    {{sports}}
+  </div>
+<br><br>
+  <div>
+    <label>Newsletter</label>
+    <input
+        v-model="newsletter"
+        type="radio"
+        value="Sim"
+    >Sim
+
+    <input
+        v-model="newsletter"
+        type="radio"
+        value="Não"
+    >Não<br>
+    {{newsletter}}
+  </div>
+  <br><br>
+  <div>
+    <input
+        v-model="colors"
+        type="checkbox"
+        value="Amarelo"
+    > Amarelo
+    <input
+        v-model="colors"
+        type="checkbox"
+        value="Azul"
+    > Azul
+    <input
+        v-model="colors"
+        type="checkbox"
+        value="Verde"
+    > Verde
+    <input
+        v-model="colors"
+        type="checkbox"
+        value="Roxo"
+    > Roxo
+  </div>
+  <br>
+  {{colors}}
 
 </template>
 
@@ -25,13 +73,17 @@
 
 export default {
   name: 'App',
-  components: {
 
+  components: {
+    // Importar componentes
   },
   // Central de variaveis do componente
-  data(){
-    return{
-
+  data() {
+    return {
+      name: 'Cleber falcão',
+      sports: '',
+      newsletter: '',
+      colors: [],
       users: [
         {
           "id": 1,
@@ -50,27 +102,15 @@ export default {
         }
       ]
 
-      }
     }
   }
+}
 </script>
 
 <style>
-.title{
+.title {
   font-size: 20px;
   color: #42b983;
-}
-.tomilho{
-  display: flex;
-  background-color: #000;
-  margin: 5px 50px 5px 50px;
-  padding: 3px 6px;
-  color: #fff;
-  align-items: center;
-}
-
-.tomilho_img{
-
 }
 
 #app {
