@@ -1,66 +1,52 @@
 <template>
-  <PageHeader
-      v-if="showHeader"
-  />
+  <h1 class="title">Vue 3</h1>
+
+  <p>
+    
+  </p>
 
   <div
-      v-for="obj in todos"
+      v-for="(obj, index) in users"
       v-bind:key="obj.id"
       class="tomilho"
   >
-    {{ obj.title }}
+    <img
+        v-if="obj.imgSrc"
+        v-bind:src="obj.imgSrc"
+    >
+    {{index}} - {{ obj.nome }}
   </div>
 
-  <img
-      alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import PageHeader from './components/PageHeader.vue';
+// import HelloWorld from './components/HelloWorld.vue'
+// import PageHeader from './components/PageHeader.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    PageHeader
+
   },
   // Central de variaveis do componente
   data(){
     return{
-      showHeader: true,
 
-      todos: [
+      users: [
         {
-          "userId": 1,
           "id": 1,
-          "title": "delectus aut autem",
-          "completed": false
+          "nome": "Heitor Santos",
+          "imgSrc": 'https://placehold.co/150x150'
         },
         {
-          "userId": 1,
           "id": 2,
-          "title": "quis ut nam facilis et officia qui",
-          "completed": false
+          "nome": "Douglas Santos",
+          "imgSrc": 'https://placehold.co/150x150'
         },
         {
-          "userId": 1,
           "id": 3,
-          "title": "fugiat veniam minus",
-          "completed": false
-        },
-        {
-          "userId": 1,
-          "id": 4,
-          "title": "et porro tempora",
-          "completed": true
-        },
-        {
-          "userId": 1,
-          "id": 5,
-          "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
-          "completed": false
+          "nome": "Vanessa Santos",
+
         }
       ]
 
@@ -70,12 +56,21 @@ export default {
 </script>
 
 <style>
+.title{
+  font-size: 20px;
+  color: #42b983;
+}
 .tomilho{
+  display: flex;
   background-color: #000;
   margin: 5px 50px 5px 50px;
   padding: 3px 6px;
   color: #fff;
-  text-align: left;
+  align-items: center;
+}
+
+.tomilho_img{
+
 }
 
 #app {
@@ -84,6 +79,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin: 60px;
 }
 </style>
